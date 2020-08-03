@@ -20,6 +20,7 @@ module Bigcommerce
   class ServiceUnavailable < HttpError; end
   class GatewayTimeout < HttpError; end
   class BandwidthLimitExceeded < HttpError; end
+  class UnprocessableEntity < HttpError; end
 
   module HttpErrors
     ERRORS = {
@@ -31,6 +32,7 @@ module Bigcommerce
       406 => Bigcommerce::NotAccepted,
       408 => Bigcommerce::TimeOut,
       409 => Bigcommerce::ResourceConflict,
+      422 => Bigcommerce::UnprocessableEntity,
       429 => Bigcommerce::TooManyRequests,
       500 => Bigcommerce::InternalServerError,
       502 => Bigcommerce::BadGateway,
